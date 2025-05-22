@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Krish Ajay Tiwari - Portfolio</title>
+
+    <meta name="description" content="Krish Ajay Tiwari's personal portfolio showcasing education, goals, and achievements in engineering and tech innovation." />
+    <meta name="author" content="Krish Ajay Tiwari" />
+    <meta property="og:title" content="Krish Ajay Tiwari - Aspiring Engineer & Innovator" />
+    <meta property="og:image" content="https://yourwebsite.com/path/to/your/preview-image.jpg" /> <meta property="og:description" content="Personal portfolio site of Krish Ajay Tiwari, an aspiring engineer with a passion for learning and creating impactful digital experiences." />
+    <meta name="theme-color" content="#1652f8" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #f1f5f9;
+            position: relative;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(20, 30, 50, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+            background-attachment: fixed;
+            background-size: 150% 150%;
+        }
+        .dark {
+            background: #0f172a;
+            color: #f1f5f9;
+        }
+        /* Hero Section Background Pattern */
+        #about {
+            background-image: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 5rem 0;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: background-image 0.5s ease-in-out;
+            background-size: 200% 200%;
+            animation: gradientMove 15s ease infinite alternate;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            background: #2a3b50;
+        }
+        header {
+            background: #1652f8;
+        }
+        header h1 {
+            transition: transform 0.2s ease-in-out;
+        }
+        header h1:hover {
+            transform: translateY(-2px);
+        }
+        nav a {
+            color: #f8fafc;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+        nav a:hover {
+            color: #e0f2fe;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        /* Active link indicator */
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background-color: #4ade80;
+            border-radius: 2px;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        footer {
+            background-color: #1d4ed8;
+            color: #cbd5e1;
+        }
+        a {
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #60a5fa;
+        }
+
+        /* Section Heading Styling */
+        h2.section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.5rem;
+        }
+        h2.section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%) scaleX(0);
+            width: 80px;
+            height: 4px;
+            background-color: #4ade80;
+            border-radius: 2px;
+            transition: transform 0.4s ease-out;
+        }
+        h2.section-heading.in-view::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        h2.section-heading:hover::after {
+            animation: pulseUnderline 1.5s infinite alternate;
+        }
+        @keyframes pulseUnderline {
+            0% { transform: translateX(-50%) scaleX(1); opacity: 1; }
+            100% { transform: translateX(-50%) scaleX(1.1); opacity: 0.8; }
+        }
+
+        /* LIGHT MODE THEME */
+        .light-mode {
+            background-color: #eff3f8; /* Softer, brighter background */
+            color: #000000; /* Pure black text for maximum contrast */
+            background-image: radial-gradient(circle at 10% 20%, rgba(240, 245, 250, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+        }
+        .light-mode header{
+            background-color: #6a8cff; /* A vibrant light blue/purple */
+        }
+        .light-mode header h1, .light-mode nav a, .light-mode #theme-toggle, .light-mode #menu-toggle {
+            color: #ffffff; /* White text on vibrant header */
+        }
+        .light-mode nav a:hover {
+            color: #e0f2fe;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .light-mode nav a.active::after {
+            background-color: #38c172; /* A vibrant green for active link */
+        }
+        .light-mode #about {
+            background-image: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .light-mode #about h2 {
+            color: #1e3a8a; /* Darker blue for heading */
+        }
+        .light-mode #about p {
+            color: #000000; /* Pure black for paragraph */
+        }
+        .light-mode .card{
+            background-color: #ffffff;
+            color: #000000; /* Pure black text for card */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+        }
+        .light-mode .card:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
+            background-color: #f8fafc;
+        }
+        .light-mode .card h3 {
+            color: #2563eb; /* Blue for card headings */
+        }
+        .light-mode footer{
+            background-color: #4a75ff; /* A slightly darker vibrant blue for footer */
+            color: #e0f2fe;
+        }
+        .light-mode h2.section-heading::after {
+            background-color: #38c172; /* Vibrant green for light mode heading underline */
+        }
+        .light-mode a:hover {
+            color: #4a75ff; /* Bright blue for general link hover */
+        }
+        .light-mode .contact-input {
+            background-color: #f0f4f8;
+            color: #000000; /* Pure black text for input */
+            border-color: #cbd5e1;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .light-mode .contact-input:focus {
+            border-color: #6a8cff;
+            box-shadow: 0 0 0 2px rgba(106, 140, 255, 0.3);
+        }
+        .light-mode .cta-button {
+            background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+            color: white;
+        }
+        .light-mode .cta-button:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .light-mode #scroll-to-top {
+            background-image: linear-gradient(45deg, #6a8cff 0%, #4a75ff 100%);
+            color: #ffffff;
+        }
+        .light-mode #scroll-to-top:hover {
+            background-image: linear-gradient(45deg, #4a75ff 0%, #6a8cff 100%);
+        }
+        .light-mode .social-icon {
+            background-color: #e0e7ff; /* Lightest blue for social icons */
+            color: #3b82f6; /* Blue icon color */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .light-mode .social-icon:hover {
+            background-color: #c8d3ff;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+
+        /* Scroll-to-top button */
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-image: linear-gradient(45deg, #1652f8 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-image 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        #scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        #scroll-to-top:hover {
+            background-image: linear-gradient(45deg, #3b82f6 0%, #1652f8 100%);
+            transform: translateY(-5px);
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.7);
+            background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
+        }
+        .cta-button svg {
+            transition: transform 0.3s ease;
+            animation: pulseArrow 1.5s infinite alternate; /* Pulsating arrow */
+        }
+        @keyframes pulseArrow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(5px); }
+        }
+        .cta-button:hover svg { /* Override pulse on hover to slide */
+            animation: none;
+            transform: translateX(8px);
+        }
+
+
+        /* Contact Form Input Focus */
+        .contact-input {
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-input:focus {
+            outline: none;
+            border-color: #60a5fa; /* Blue border on focus */
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3); /* Blue glow on focus */
+        }
+        .light-mode .contact-input:focus {
+            border-color: #6a8cff; /* Light mode specific focus color */
+            box-shadow: 0 0 0 2px rgba(106, 140, 255, 0.3);
+        }
+
+        /* Social Media Bar */
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #1e293b;
+            color: #60a5fa;
+            font-size: 1.8rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: #2a3b50;
+            color: #4ade80; /* Green on hover */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Floating Sparkles (Conceptual - for visual effect only) */
+        .sparkle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .sparkle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle-float 10s ease-out infinite;
+            filter: blur(1px);
+        }
+        .sparkle:nth-child(1) { width: 4px; height: 4px; left: 10%; top: 20%; animation-delay: 0s; animation-duration: 8s; }
+        .sparkle:nth-child(2) { width: 3px; height: 3px; left: 25%; top: 50%; animation-delay: 2s; animation-duration: 12s; }
+        .sparkle:nth-child(3) { width: 5px; height: 5px; left: 40%; top: 10%; animation-delay: 4s; animation-duration: 9s; }
+        .sparkle:nth-child(4) { width: 3px; height: 3px; left: 60%; top: 70%; animation-delay: 6s; animation-duration: 11s; }
+        .sparkle:nth-child(5) { width: 4px; height: 4px; left: 80%; top: 30%; animation-delay: 1s; animation-duration: 10s; }
+
+        @keyframes sparkle-float {
+            0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+            20% { opacity: 1; transform: translateY(-10px) translateX(5px) scale(1); }
+            80% { opacity: 0.5; transform: translateY(-50px) translateX(15px) scale(0.8); }
+            100% { transform: translateY(-100px) translateX(20px) scale(0); opacity: 0; }
+        }
+        .light-mode .sparkle {
+            background-color: rgba(0, 0, 0, 0.2); /* Darker sparkles in light mode */
+        }
+    </style>
+</head>
+<body class="dark">
+    <header class="py-6 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-white cursor-pointer">Krish Ajay Tiwari</h1>
+            <nav class="hidden md:flex space-x-2">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#hobbies" class="nav-link">Hobbies</a>
+                <a href="#role-model" class="nav-link">Role Model</a>
+                <a href="#goals" class="nav-link">Dreams</a>
+                <a href="shop.html" class="nav-link">Shop</a> <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="flex items-center">
+                <button id="theme-toggle" class="text-white text-2xl focus:outline-none mr-4 transition-transform duration-300 hover:scale-110">
+                    <span class="sr-only">Toggle theme</span>☀️
+                </button>
+                <button id="menu-toggle" class="md:hidden text-white text-3xl focus:outline-none transition-transform duration-300 hover:rotate-90">☰</button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden px-4 mt-4 space-y-2 text-center bg-[#1652f8] py-2">
+            <a href="#about" class="block text-white py-2 hover:bg-blue-700 rounded">About</a>
+            <a href="#achievements" class="block text-white py-2 hover:bg-blue-700 rounded">Achievements</a>
+            <a href="#hobbies" class="block text-white py-2 hover:bg-blue-700 rounded">Hobbies</a>
+            <a href="#role-model" class="block text-white py-2 hover:bg-blue-700 rounded">Role Model</a>
+            <a href="#goals" class="block text-white py-2 hover:bg-blue-700 rounded">Dreams</a>
+            <a href="shop.html" class="block text-white py-2 hover:bg-blue-700 rounded">Shop</a> <a href="#contact" class="block text-white py-2 hover:bg-blue-700 rounded">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 space-y-16">
+        <section id="about" class="text-center fade-in-section">
+            <div class="sparkle-container">
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+            <img src="img2.jpg" alt="Krish Ajay Tiwari - Profile Picture" class="mx-auto w-36 h-36 rounded-full border-4 border-blue-400 shadow-lg object-cover transform transition-transform duration-500 hover:scale-105 relative z-10"/>
+            <h2 class="text-4xl font-bold mt-6 mb-2 text-blue-300 relative z-10">Hello, I'm Krish Ajay Tiwari</h2>
+            <p class="text-lg max-w-2xl mx-auto text-blue-100 relative z-10">
+                I'm an aspiring engineer with a passion for learning and creating impactful digital experiences.
+                I thrive on curiosity, innovation, and collaboration.
+            </p>
+            <a href="#contact" class="cta-button inline-flex mt-8 text-white font-bold py-3 px-8 rounded-full shadow-lg relative z-10">
+                Get in Touch!
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </section>
+
+        <section id="achievements" class="fade-in-section">
+            <h2 class="text-3xl font-semibold text-center section-heading text-blue-400">Achievements</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2 text-blue-300">Certifications</h3>
+                    <p>• Cyber Security<br/>• Semiconductor Devices<br/>• DSA</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2 text-blue-300">Events</h3>
+                    <p>• SIP Hackathon<br/>• SJCEM Code Relay</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="text-xl font-bold mb-2 text-blue-300">Projects</h3>
+                    <p>• Landrover using esp32</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies" class="text-center fade-in-section">
+            <h2 class="text-3xl font-semibold section-heading text-blue-400">My Hobbies</h2>
+            <p class="text-lg max-w-3xl mx-auto leading-relaxed text-blue-100">
+                • Learning about new tech trends<br/>
+                • Analyzing different technical projects<br/>
+                • Watching and analyzing cricket matches<br/>
+                • Reading motivational books and biographies
+            </p>
+        </section>
+
+        <section id="role-model" class="text-center fade-in-section">
+            <h2 class="text-3xl font-semibold section-heading text-blue-400">My Role Model</h2>
+            <p class="text-lg max-w-3xl mx-auto text-blue-100">
+                My role model is <strong class="text-blue-300">Elon Musk</strong>. Elon Musk is a visionary entrepreneur and the CEO of SpaceX, Tesla, and xAI. Known for his leadership in his leadership in advancing artificial intelligence, he also heads Neuralink and The Boring Company.
+            </p>
+        </section>
+
+        <section id="goals" class="text-center fade-in-section">
+            <h2 class="text-3xl font-semibold section-heading text-blue-400">My Dreams</h2>
+            <p class="text-lg max-w-3xl mx-auto text-blue-100">
+                My dream is to become a tech innovator and create solutions that empower people and businesses.
+                I aspire to work with cutting-edge technologies and contribute to impactful projects globally.
+            </p>
+        </section>
+
+        <section id="repos" class="text-center mt-12 fade-in-section">
+            <h2 class="text-3xl font-semibold section-heading text-blue-400">My GitHub Projects</h2>
+            <ul id="github-repos" class="space-y-3 text-lg text-blue-200 max-w-2xl mx-auto"></ul>
+        </section>
+
+        <section id="contact" class="text-center fade-in-section">
+            <h2 class="text-3xl font-semibold section-heading text-blue-400 mb-8">Let's Connect & Collaborate!</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="card p-8 flex flex-col justify-center items-center h-full">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-300">Get in Touch Directly</h3>
+                    <div class="space-y-6 w-full max-w-sm mx-auto">
+                        <div class="flex items-center text-left p-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200">
+                            <i class="fas fa-phone text-2xl text-green-400 mr-4"></i>
+                            <div>
+                                <span class="block text-gray-400 text-sm">Call Me</span>
+                                <a href="tel:+917709670074" class="text-lg font-semibold text-blue-300 hover:underline">+91 7709670074</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-left p-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200">
+                            <i class="fas fa-envelope text-2xl text-red-400 mr-4"></i>
+                            <div>
+                                <span class="block text-gray-400 text-sm">Email Me</span>
+                                <a href="mailto:tiwarikrish205@gmail.com" class="text-lg font-semibold text-blue-300 hover:underline">tiwarikrish205@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-left p-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200">
+                            <i class="fab fa-whatsapp text-2xl text-teal-400 mr-4"></i>
+                            <div>
+                                <span class="block text-gray-400 text-sm">WhatsApp</span>
+                                <a href="https://wa.me/917709670074" class="text-lg font-semibold text-blue-300 hover:underline" target="_blank" rel="noopener noreferrer">Message Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold mt-10 mb-4 text-blue-300">Find Me Online</h3>
+                    <div class="social-bar">
+                        <a href="https://www.linkedin.com/in/krish-tiwari-b40983283/" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/krishxtiwari" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://wa.me/917709670074" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card p-8 text-left">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-300">Send Me a Message!</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-blue-200 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="contact-input w-full p-3 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-blue-200 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="contact-input w-full p-3 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="your.email@example.com" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-blue-200 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" class="contact-input w-full p-3 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="What's your message about?">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-blue-200 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="contact-input w-full p-3 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded transition-colors duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="w-full mt-12 rounded-md overflow-hidden shadow-lg border border-blue-700">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15060.00030588828!2d72.8080068301742!3d19.412497187127415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7af24f3ce0531%3A0x7d24a0d95b583f8b!2sNala%20Sopara%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map of Nala Sopara, Maharashtra, India"
+                ></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-4 text-sm">
+        <p>© 2025 Krish Ajay Tiwari. All rights reserved.</p>
+    </footer>
+
+    <button id="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scroll for nav links (optional, if default smooth-scroll behavior is not enough)
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Check if the link is for the shop page
+                if (this.getAttribute('href') === 'shop.html') {
+                    window.location.href = 'shop.html'; // Direct navigation for shop page
+                } else {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the link is for the shop page
+                if (this.getAttribute('href') === 'shop.html') {
+                    window.location.href = 'shop.html'; // Direct navigation for shop page
+                }
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Fetch GitHub Repositories
+        fetch('https://api.github.com/users/krishxtiwari/repos')
+            .then(res => res.json())
+            .then(repos => {
+                const list = document.getElementById('github-repos');
+                if (repos && Array.isArray(repos) && repos.length > 0) {
+                    const nonForkRepos = repos.filter(repo => !repo.fork);
+                    nonForkRepos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+                    if (nonForkRepos.length > 0) {
+                        nonForkRepos.slice(0, 5).forEach(repo => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="hover:underline text-blue-300">${repo.name}</a>`;
+                            list.appendChild(li);
+                        });
+                    } else {
+                        list.textContent = 'No public, non-fork repositories found.';
+                    }
+                } else {
+                    list.textContent = 'No public repositories found or unable to load.';
+                }
+            })
+            .catch(() => {
+                document.getElementById('github-repos').textContent = 'Unable to load repositories. Please check GitHub username or network.';
+            });
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const updateThemeIcon = () => {
+            if (body.classList.contains('light-mode')) {
+                themeToggleBtn.innerHTML = '<span class="sr-only">Toggle theme</span>☀️'; // Sun icon for light mode
+            } else {
+                themeToggleBtn.innerHTML = '<span class="sr-only">Toggle theme</span>🌙'; // Moon icon for dark mode
+            }
+        };
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            updateThemeIcon();
+        });
+
+        // Initialize theme icon based on current mode
+        updateThemeIcon();
+
+        // Scroll-to-top button functionality
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for fade-in effect on sections and heading animations
+        const fadeSections = document.querySelectorAll('.fade-in-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const allSections = document.querySelectorAll('main section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const correspondingNavLink = document.querySelector(`nav a[href="#${id}"]`);
+
+                // Fade-in sections
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Add 'in-view' class to heading for animation
+                    const heading = entry.target.querySelector('.section-heading');
+                    if (heading) {
+                        heading.classList.add('in-view');
+                    }
+
+                    // Highlight active nav link
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    if (correspondingNavLink) {
+                        correspondingNavLink.classList.add('active');
+                    }
+                } else {
+                    // Remove 'in-view' from heading if scrolling out
+                    const heading = entry.target.querySelector('.section-heading');
+                    if (heading) {
+                        heading.classList.remove('in-view');
+                    }
+                     // Remove active class when leaving a section if not the current top one
+                    const nextSection = allSections[Array.from(allSections).indexOf(entry.target) + 1];
+                    if (nextSection && window.scrollY < entry.target.offsetTop) { // If scrolling *up* past this section
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const prevSectionId = allSections[Array.from(allSections).indexOf(entry.target) - 1]?.getAttribute('id');
+                        if (prevSectionId) {
+                            document.querySelector(`nav a[href="#${prevSectionId}"]`).classList.add('active');
+                        } else { // At the very top
+                             document.querySelector('nav a[href="#about"]').classList.add('active');
+                        }
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Initialize observer for each section
+        fadeSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Set initial active link for "About" section on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.scrollY === 0) { // If page loads at the very top
+                document.querySelector('nav a[href="#about"]').classList.add('active');
+            }
+        });
+
+
+        // Simple form submission handler (client-side only)
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Thank you for your message! Krish will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
